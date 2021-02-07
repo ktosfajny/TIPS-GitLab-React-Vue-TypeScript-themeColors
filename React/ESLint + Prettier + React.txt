@@ -1,0 +1,4 @@
+https://medium.com/@RossWhitehouse/setting-up-eslint-in-react-c20015ef35f7
+https://www.npmjs.com/package/eslint-config-airbnb
+https://stackoverflow.com/questions/41462729/typescript-react-could-not-find-a-declaration-file-for-module-react-material		(search: In my case I had a problem with react, so I started doing:)
+https://prettier.io/docs/en/configuration.html

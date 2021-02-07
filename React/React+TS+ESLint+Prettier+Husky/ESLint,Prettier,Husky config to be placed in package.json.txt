@@ -1,0 +1,40 @@
+  "lint-staged": {
+    "*.(js|ts|jsx|tsx|vue)": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.(css|sass|scss|less|md|json|yaml|yml|xml)": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "prettier",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+       "no-console":"warn"
+}
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "endOfLine": "auto"
+  }

@@ -1,0 +1,39 @@
+Aby zrobić deploy na GitLab Pages trzeba zrobić 2 rzeczy:
+
+inicjujesz repo, jesteś na master branchu i wtedy:
+
+1 - w package.json na początku dodaj linię:
+  "homepage": "https://ktosfajny777.gitlab.io/my-visual-novel",
+
+gdzie:
+
+  "homepage": "https://<space_name>.gitlab.io/<project_name>",
+
+
+2 - w głównym folderze (tam gdzie np package.json) stwórz plik  .gitlab-ci.yml z zawartością (jak korzystarz z yarn, jak z npm to yarn zamien na npm run):
+
+image: node:latest # change to match your project's node version
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - rm -rf build
+  - CI=false yarn install
+
+pages:
+  stage: deploy
+  script:
+    - CI=false yarn build
+    - rm -rf public
+    - cp build/index.html build/404.html
+    - mv build public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+
+
+pushujesz to ale nic się nie stanie, wtedy lokalnie tworzysz develop i z niego pushujesz znowu  (możesz wtedy też zmienić default branch na develop ale nie musisz) i wtedy w CI / CD w Pipelines pojawi się twój pipeline i jak się załaduje to wtedy w Settings w Pages pojawi sięlink do twojej strony

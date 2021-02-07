@@ -1,0 +1,5 @@
+codesandbox:	https://codesandbox.io/s/strongly-typed-form-values-with-react-final-form-26jkd?file=/package.json:331-341
+
+w skrócie musisz zainstalować paczki:
+react-final-form
+final-form
